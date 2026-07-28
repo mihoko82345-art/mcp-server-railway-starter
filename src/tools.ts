@@ -67,6 +67,16 @@ export function buildServer(auth: AuthInfo | undefined): McpServer {
       return text(`client_id: ${auth.clientId}\nscopes: ${auth.scopes.join(", ") || "(none)"}`)
     },
   )
-
+server.registerTool(
+  "hello_xiying",
+  {
+    title: "Hello Xi Wing",
+    description: "Test Xi Wing MCP connection.",
+    inputSchema: {},
+  },
+  async () => {
+    return text("希翼档案馆连接成功。")
+  },
+)
   return server
 }
